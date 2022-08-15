@@ -1,0 +1,15 @@
+{
+    "name": "bqu6204/php_mvc_tutorial",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "bqu6204",
+            "email": "bqu6204@gmail.com"
+        }
+    ],
+    "require": {}
+}
