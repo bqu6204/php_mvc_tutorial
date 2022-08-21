@@ -9,17 +9,23 @@ namespace app\core;
 
 class Application
 {
-    // public Router $router;
-    // public Request $request;
-    
-    public function __construct()
+    public static string $ROOT_DIR;
+    public Router $router;
+    public Request $request;
+    public Response $response;
+    public static Application $app; //declared for Router class to set httpStatusCode;
+
+    public function __construct($rootPath)
     {
         $this->request = new Request();
-        $this->router = new Router($this->request);
+        $this->response = new Response();
+        $this->router = new Router($this->request, $this->response);
+        self::$ROOT_DIR = $rootPath;
+        self::$app = $this; // for Router class  to set httpStatusCode;
     }
 
     public function run()
     {
-        $this->router->resolve(); //resolve not written yet.
+        echo $this->router->resolve();
     }
 }
